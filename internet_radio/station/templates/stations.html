@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <a class="btn btn-default btn-xs" type="button" href="/update/">Update</a>
+    <a class="btn btn-default btn-xs" type="button" href="/delete_all/">Delete all</a>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>PLS</th>
+            <th>M3U</th>
+            <th>Bit rate</th>
+        </tr>
+        {% for station in stations %}
+        <tr>
+            <td>{{ station.title }}</td>
+            <td><a href="{{ station.pls }}">PLS</a></td>
+            <td><a href="{{ station.m3u }}">M3U</a></td>
+            <td>{{ station.bit_rate }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{%  endblock %}
